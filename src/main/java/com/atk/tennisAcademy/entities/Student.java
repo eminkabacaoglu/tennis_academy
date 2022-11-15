@@ -29,10 +29,11 @@ public class Student extends Person{
     private List<Parent> parents;
 
     @Builder
-    public Student(String firstName, String lastName, String username, String password, LocalDate dateOfBirth, String placeOfBirth, boolean isActive, String school) {
-        super(firstName, lastName, username, password, dateOfBirth, placeOfBirth, isActive);
+    public Student(String firstName, String lastName, String username, String password, LocalDate dateOfBirth, String placeOfBirth, boolean isActive,Gender gender, String school) {
+        super(firstName, lastName, username, password, dateOfBirth, placeOfBirth, isActive,gender);
         this.school = school;
     }
+
 
     public void addParent(Parent parent){
         if(parents ==null) parents = new ArrayList<>();

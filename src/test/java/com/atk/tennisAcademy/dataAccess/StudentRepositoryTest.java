@@ -1,6 +1,6 @@
 package com.atk.tennisAcademy.dataAccess;
 
-import com.atk.tennisAcademy.entities.Parent;
+import com.atk.tennisAcademy.entities.Person;
 import com.atk.tennisAcademy.entities.Student;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -46,11 +46,12 @@ class StudentRepositoryTest {
                 .password("12345")
                 .placeOfBirth("giresun")
                 .isActive(true)
+                .gender(Person.Gender.Male)
                 .dateOfBirth(LocalDate.parse("1986-02-02"))
                         .build();
 
-        student.addParent(parentRepository.findById(1L).get());
-        student.addParent(parentRepository.findById(2L).get());
+//        student.addParent(parentRepository.findById(1L).get());
+//        student.addParent(parentRepository.findById(2L).get());
 //        student.addParent(parent);
 //        student.addParent(parent2);
         studentRepository.save(student);
