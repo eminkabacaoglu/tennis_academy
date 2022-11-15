@@ -1,6 +1,7 @@
 package com.atk.tennisAcademy.entities;
 
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -18,8 +19,9 @@ import java.time.LocalDate;
 public class Trainer extends Person{
     private String branch; //temporary field for an example
 
-    public Trainer(String firstName, String lastName, String username, String password, LocalDate dateOfBirth, String placeOfBirth, boolean isActive, Gender gender, String branch) {
-        super(firstName, lastName, username, password, dateOfBirth, placeOfBirth, isActive, gender);
+    @Builder
+    public Trainer(String firstName, String lastName, String username, String password, String nationalId, LocalDate dateOfBirth, String placeOfBirth, boolean isActive, Gender gender, String branch) {
+        super(firstName, lastName, username, password, nationalId, dateOfBirth, placeOfBirth, isActive, gender);
         this.branch = branch;
     }
 }

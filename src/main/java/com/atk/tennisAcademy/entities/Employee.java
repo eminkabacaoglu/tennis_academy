@@ -19,9 +19,8 @@ public class Employee extends Person{
     private String employeeNo;
 
     @Builder
-
-    public Employee(String firstName, String lastName, String username, String password, LocalDate dateOfBirth, String placeOfBirth, boolean isActive, Gender gender, String employeeNo) {
-        super(firstName, lastName, username, password, dateOfBirth, placeOfBirth, isActive, gender);
+    public Employee(String firstName, String lastName, String username, String password, String nationalId, LocalDate dateOfBirth, String placeOfBirth, boolean isActive, Gender gender, String employeeNo) {
+        super(firstName, lastName, username, password, nationalId, dateOfBirth, placeOfBirth, isActive, gender);
         this.employeeNo = employeeNo;
     }
 }

@@ -27,12 +27,14 @@ public class Student extends Person{
             inverseJoinColumns = @JoinColumn(name = "parent_id",
             referencedColumnName = "id"))
     private List<Parent> parents;
-
     @Builder
-    public Student(String firstName, String lastName, String username, String password, LocalDate dateOfBirth, String placeOfBirth, boolean isActive,Gender gender, String school) {
-        super(firstName, lastName, username, password, dateOfBirth, placeOfBirth, isActive,gender);
+    public Student(String firstName, String lastName, String username, String password, String nationalId, LocalDate dateOfBirth, String placeOfBirth, boolean isActive, Gender gender, String school) {
+        super(firstName, lastName, username, password, nationalId, dateOfBirth, placeOfBirth, isActive, gender);
         this.school = school;
     }
+
+
+
 
 
     public void addParent(Parent parent){
