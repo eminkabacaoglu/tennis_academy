@@ -6,6 +6,7 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
+import javax.transaction.Transactional;
 import java.time.LocalDate;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -14,31 +15,33 @@ class StudentRepositoryTest {
 
     @Autowired
     private  StudentRepository studentRepository;
+    @Autowired
+    private ParentRepository parentRepository;
 
     @Test
     public  void saveStudent(){
         Parent parent = Parent.builder()
-                .firstName("nur")
-                .lastName("durkaya")
+                .firstName("nursel")
+                .lastName("kabacaoglu")
                 .dateOfBirth(LocalDate.parse("1955-02-02"))
                 .username("nur")
                 .password("9999")
                 .isActive(true)
                 .job("ogretmen")
                 .build();
-//        Parent parent2 = Parent.builder()
-//                .firstName("mustafa")
-//                .lastName("durkaya")
-//                .dateOfBirth(LocalDate.parse("1955-02-02"))
-//                .username("nur")
-//                .password("9999")
-//                .isActive(true)
-//                .job("ogretmen")
-//                .build();
+        Parent parent2 = Parent.builder()
+                .firstName("asuda")
+                .lastName("celebi")
+                .dateOfBirth(LocalDate.parse("1955-02-02"))
+                .username("nur")
+                .password("9999")
+                .isActive(true)
+                .job("ogretmen")
+                .build();
         Student student = Student.builder()
-                .firstName("goksu")
-                .lastName("durkaya")
-                .username("goksu")
+                .firstName("musatafa")
+                .lastName("baker")
+                .username("mus")
                 .school("Ataturk Lisesi")
                 .password("12345")
                 .placeOfBirth("giresun")
@@ -46,8 +49,10 @@ class StudentRepositoryTest {
                 .dateOfBirth(LocalDate.parse("1986-02-02"))
                         .build();
 
+//        student.addParent(parentRepository.findById(1L).get());
+//        student.addParent(parentRepository.findById(2L).get());
         student.addParent(parent);
-//        student.addParent(parent2);
+        student.addParent(parent2);
         studentRepository.save(student);
 
     }

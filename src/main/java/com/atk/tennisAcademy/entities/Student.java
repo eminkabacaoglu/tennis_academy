@@ -7,6 +7,7 @@ import lombok.NoArgsConstructor;
 import lombok.experimental.SuperBuilder;
 
 import javax.persistence.*;
+import javax.transaction.Transactional;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
@@ -18,7 +19,7 @@ import java.util.List;
 public class Student extends Person{
     private String school;
 
-    @ManyToMany(cascade = CascadeType.ALL)
+    @ManyToMany(cascade =CascadeType.ALL,fetch=FetchType.LAZY)
     @JoinTable(
             name = "student_parent",
             joinColumns = @JoinColumn(name = "student_id",
