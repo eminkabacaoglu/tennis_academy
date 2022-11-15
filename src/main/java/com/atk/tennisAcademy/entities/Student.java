@@ -1,21 +1,40 @@
 package com.atk.tennisAcademy.entities;
 
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.experimental.SuperBuilder;
 
-import javax.persistence.Entity;
-import javax.persistence.Inheritance;
-import javax.persistence.InheritanceType;
-import javax.persistence.Table;
+import javax.persistence.*;
+import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 
 @Data
-@AllArgsConstructor
 @NoArgsConstructor
 @Entity
 @Table(name = "students")
-@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 public class Student extends Person{
-    private int age;
+    private String school;
 
+    @ManyToMany(cascade = CascadeType.ALL)
+    @JoinTable(
+            name = "student_parent",
+            joinColumns = @JoinColumn(name = "student_id",
+            referencedColumnName = "id"),
+            inverseJoinColumns = @JoinColumn(name = "parent_id",
+            referencedColumnName = "id"))
+    private List<Parent> parents;
+
+    @Builder
+    public Student(String firstName, String lastName, String username, String password, LocalDate dateOfBirth, String placeOfBirth, boolean isActive, String school) {
+        super(firstName, lastName, username, password, dateOfBirth, placeOfBirth, isActive);
+        this.school = school;
+    }
+
+    public void addParent(Parent parent){
+        if(parents ==null) parents = new ArrayList<>();
+        parents.add(parent);
+    }
 }

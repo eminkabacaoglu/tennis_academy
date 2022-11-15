@@ -14,7 +14,6 @@ import javax.persistence.Table;
 @NoArgsConstructor
 @Entity
 @Table(name = "trainers")
-@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 public class Trainer extends Person{
     private String branch; //temporary field for an example
 }
