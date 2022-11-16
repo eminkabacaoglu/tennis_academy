@@ -19,8 +19,8 @@ public class Member extends Person{
     private String memberNo;
 
     @Builder
-    public Member(String firstName, String lastName, String username, String password, String nationalId, LocalDate dateOfBirth, String placeOfBirth, boolean isActive, Gender gender, String memberNo) {
-        super(firstName, lastName, username, password, nationalId, dateOfBirth, placeOfBirth, isActive, gender);
+    public Member(String firstName, String lastName, String username, String password, String nationalId, LocalDate dateOfBirth, String placeOfBirth, Gender gender, String memberNo) {
+        super(firstName, lastName, username, password, nationalId, dateOfBirth, placeOfBirth, gender);
         this.memberNo = memberNo;
     }
 }

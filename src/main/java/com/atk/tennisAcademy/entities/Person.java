@@ -4,6 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.hibernate.annotations.ColumnDefault;
 
 import javax.persistence.*;
 import java.time.LocalDate;
@@ -28,12 +29,12 @@ public class Person {
     private String nationalId;
     private LocalDate dateOfBirth;
     private String placeOfBirth;
-    @Column(columnDefinition = "boolean default true")
-    private boolean isActive;
+
+    private boolean isActive = true;
     @Enumerated(EnumType.STRING)
     Gender gender;
 
-    public Person(String firstName, String lastName, String username, String password, String nationalId, LocalDate dateOfBirth, String placeOfBirth, boolean isActive, Gender gender) {
+    public Person(String firstName, String lastName, String username, String password, String nationalId, LocalDate dateOfBirth, String placeOfBirth,  Gender gender) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.username = username;
@@ -41,7 +42,6 @@ public class Person {
         this.nationalId = nationalId;
         this.dateOfBirth = dateOfBirth;
         this.placeOfBirth = placeOfBirth;
-        this.isActive = isActive;
         this.gender = gender;
     }
 

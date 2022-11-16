@@ -20,8 +20,8 @@ public class Trainer extends Person{
     private String branch; //temporary field for an example
 
     @Builder
-    public Trainer(String firstName, String lastName, String username, String password, String nationalId, LocalDate dateOfBirth, String placeOfBirth, boolean isActive, Gender gender, String branch) {
-        super(firstName, lastName, username, password, nationalId, dateOfBirth, placeOfBirth, isActive, gender);
+    public Trainer(String firstName, String lastName, String username, String password, String nationalId, LocalDate dateOfBirth, String placeOfBirth, Gender gender, String branch) {
+        super(firstName, lastName, username, password, nationalId, dateOfBirth, placeOfBirth, gender);
         this.branch = branch;
     }
 }

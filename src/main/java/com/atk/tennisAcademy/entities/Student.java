@@ -28,8 +28,8 @@ public class Student extends Person{
             referencedColumnName = "id"))
     private List<Parent> parents;
     @Builder
-    public Student(String firstName, String lastName, String username, String password, String nationalId, LocalDate dateOfBirth, String placeOfBirth, boolean isActive, Gender gender, String school) {
-        super(firstName, lastName, username, password, nationalId, dateOfBirth, placeOfBirth, isActive, gender);
+    public Student(String firstName, String lastName, String username, String password, String nationalId, LocalDate dateOfBirth, String placeOfBirth, Gender gender, String school) {
+        super(firstName, lastName, username, password, nationalId, dateOfBirth, placeOfBirth, gender);
         this.school = school;
     }
 
