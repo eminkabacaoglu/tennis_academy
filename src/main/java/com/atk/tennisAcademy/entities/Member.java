@@ -5,10 +5,7 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.Entity;
-import javax.persistence.Inheritance;
-import javax.persistence.InheritanceType;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.time.LocalDate;
 
 @Data
@@ -17,10 +14,24 @@ import java.time.LocalDate;
 @Table(name = "members")
 public class Member extends Person{
     private String memberNo;
+    private String job;
+    private String fatherName;
+    private String motherName;
+    private LocalDate dateOfMembershipBegin;
+    private LocalDate dateOfMembershipEnd;
+    @ManyToOne
+    @JoinColumn(name = "membership_status_id")
+    private Status membershipStatus;
 
     @Builder
-    public Member(String firstName, String lastName, String username, String password, String nationalId, LocalDate dateOfBirth, String placeOfBirth, Gender gender, String memberNo) {
+    public Member(String firstName, String lastName, String username, String password, String nationalId, LocalDate dateOfBirth, String placeOfBirth, Gender gender, String memberNo, String job, String fatherName, String motherName, LocalDate dateOfMembershipBegin, LocalDate dateOfMembershipEnd, Status membershipStatus) {
         super(firstName, lastName, username, password, nationalId, dateOfBirth, placeOfBirth, gender);
         this.memberNo = memberNo;
+        this.job = job;
+        this.fatherName = fatherName;
+        this.motherName = motherName;
+        this.dateOfMembershipBegin = dateOfMembershipBegin;
+        this.dateOfMembershipEnd = dateOfMembershipEnd;
+        this.membershipStatus = membershipStatus;
     }
 }

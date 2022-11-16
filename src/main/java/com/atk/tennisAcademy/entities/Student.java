@@ -34,9 +34,6 @@ public class Student extends Person{
     }
 
 
-
-
-
     public void addParent(Parent parent){
         if(parents ==null) parents = new ArrayList<>();
         parents.add(parent);

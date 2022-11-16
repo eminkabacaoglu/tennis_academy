@@ -17,6 +17,7 @@ import java.time.LocalDate;
 @Table(name = "employees")
 public class Employee extends Person{
     private String employeeNo;
+    private boolean marriageStatus=false;
 
     @Builder
     public Employee(String firstName, String lastName, String username, String password, String nationalId, LocalDate dateOfBirth, String placeOfBirth,  Gender gender, String employeeNo) {
