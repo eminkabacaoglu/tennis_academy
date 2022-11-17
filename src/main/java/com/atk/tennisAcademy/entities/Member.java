@@ -23,8 +23,12 @@ public class Member extends Person{
     @JoinColumn(name = "membership_status_id")
     private Status membershipStatus;
 
+    @ManyToOne
+    @JoinColumn(name = "member_type_id")
+    private MemberType memberType;
+
     @Builder
-    public Member(String firstName, String lastName, String username, String password, String nationalId, LocalDate dateOfBirth, String placeOfBirth, Gender gender, String memberNo, String job, String fatherName, String motherName, LocalDate dateOfMembershipBegin, LocalDate dateOfMembershipEnd, Status membershipStatus) {
+    public Member(String firstName, String lastName, String username, String password, String nationalId, LocalDate dateOfBirth, String placeOfBirth, Gender gender, String memberNo, String job, String fatherName, String motherName, LocalDate dateOfMembershipBegin, LocalDate dateOfMembershipEnd, Status membershipStatus, MemberType memberType) {
         super(firstName, lastName, username, password, nationalId, dateOfBirth, placeOfBirth, gender);
         this.memberNo = memberNo;
         this.job = job;
@@ -33,5 +37,6 @@ public class Member extends Person{
         this.dateOfMembershipBegin = dateOfMembershipBegin;
         this.dateOfMembershipEnd = dateOfMembershipEnd;
         this.membershipStatus = membershipStatus;
+        this.memberType = memberType;
     }
 }

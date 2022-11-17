@@ -18,6 +18,6 @@ import javax.persistence.Id;
 public class Status {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private Long statusId;
     private String statusName;
 }
