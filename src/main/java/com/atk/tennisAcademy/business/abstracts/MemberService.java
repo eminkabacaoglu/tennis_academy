@@ -6,4 +6,5 @@ import java.util.List;
 
 public interface MemberService {
     List<Member> getAllMembers();
+    Member getMember(Long id);
 }

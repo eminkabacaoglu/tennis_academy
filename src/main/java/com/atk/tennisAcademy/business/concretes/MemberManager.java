@@ -16,4 +16,9 @@ public class MemberManager implements MemberService {
     public List<Member> getAllMembers(){
         return memberRepository.findAll();
     }
+
+    @Override
+    public Member getMember(Long id) {
+        return memberRepository.findById(id).orElse(null);
+    }
 }
