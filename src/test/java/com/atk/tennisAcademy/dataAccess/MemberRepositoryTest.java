@@ -27,9 +27,9 @@ class MemberRepositoryTest {
                 .build();
         memberTypeRepository.save(mt);
         Member member = Member.builder()
-                .firstName("Ali")
-                .lastName("Dogan")
-                .username("alid")
+                .firstName("Can")
+                .lastName("celebi")
+                .username("ccelebi")
 //                .membershipStatus(statusRepository.findById(1L).get())
                 .memberType(mt)
                 .build();
@@ -39,23 +39,25 @@ class MemberRepositoryTest {
 
     @Test
     public void updateMember(){
-        Long memberId=1L;
+        Long memberId=3L;
         Member member = Member.builder()
                 .firstName("Cihan")
-                .lastName("Ünal")
-                .membershipStatus(statusRepository.findById(1L).get())
                 .build();
         Optional<Member> memberById = memberRepository.findById(memberId);
         if(memberById.isPresent()){
             Member foundMember = memberById.get();
             foundMember.setFirstName(member.getFirstName());
-            foundMember.setLastName(member.getLastName());
-            foundMember.setUsername(member.getUsername());
 
             memberRepository.save(foundMember);
 
         }
 
+
+    }
+
+    @Test
+    public void deleteMember(){
+        memberRepository.deleteById(2L);
 
     }
 

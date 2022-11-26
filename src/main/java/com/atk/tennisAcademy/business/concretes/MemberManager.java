@@ -21,4 +21,9 @@ public class MemberManager implements MemberService {
     public Member getMember(Long id) {
         return memberRepository.findById(id).orElse(null);
     }
+
+    @Override
+    public void deteleMember(Long id) {
+        memberRepository.deleteById(id);
+    }
 }
