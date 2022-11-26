@@ -2,15 +2,12 @@ package com.atk.tennisAcademy.dataAccess;
 
 import com.atk.tennisAcademy.entities.Member;
 import com.atk.tennisAcademy.entities.MemberType;
-import com.atk.tennisAcademy.entities.Status;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
-import java.util.List;
 import java.util.Optional;
 
-import static org.junit.jupiter.api.Assertions.*;
 @SpringBootTest
 class MemberRepositoryTest {
 
@@ -24,13 +21,17 @@ class MemberRepositoryTest {
 
     @Test
     public void saveMember(){
+        MemberType mt = MemberType.builder()
+                .typeCode("U")
+                .description("Üye")
+                .build();
+        memberTypeRepository.save(mt);
         Member member = Member.builder()
                 .firstName("Ali")
                 .lastName("Dogan")
                 .username("alid")
-                .memberNo("111111")
-                .memberType(memberTypeRepository.findById(1L).get())
-                .membershipStatus(statusRepository.findById(1L).get())
+//                .membershipStatus(statusRepository.findById(1L).get())
+                .memberType(mt)
                 .build();
         memberRepository.save(member);
 
@@ -42,7 +43,6 @@ class MemberRepositoryTest {
         Member member = Member.builder()
                 .firstName("Cihan")
                 .lastName("Ünal")
-                .memberNo("11111111")
                 .membershipStatus(statusRepository.findById(1L).get())
                 .build();
         Optional<Member> memberById = memberRepository.findById(memberId);

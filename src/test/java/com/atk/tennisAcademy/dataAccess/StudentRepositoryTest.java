@@ -17,7 +17,7 @@ class StudentRepositoryTest {
     @Autowired
     private  StudentRepository studentRepository;
     @Autowired
-    private ParentRepository parentRepository;
+    private MemberRepository memberRepository;
 
     @Test
     public  void saveStudent(){
@@ -53,7 +53,7 @@ class StudentRepositoryTest {
                         .build();
 
 //        student.addParent(parentRepository.findById(1L).get());
-        student.addParent(parentRepository.findById(2L).get());
+        student.addParent(memberRepository.findById(2L).get());
 //        student.addParent(parent);
 //        student.addParent(parent2);
         studentRepository.save(student);

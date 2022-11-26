@@ -18,8 +18,8 @@ public class Parent extends Person{
     private String job;
 
     @Builder
-    public Parent(String firstName, String lastName, String username, String password, String nationalId, LocalDate dateOfBirth, String placeOfBirth,  Gender gender, String job) {
-        super(firstName, lastName, username, password, nationalId, dateOfBirth, placeOfBirth, gender);
+    public Parent(String firstName, String lastName, String username, String password, String nationalId, LocalDate dateOfBirth, String placeOfBirth,  Gender gender,String mobilePhone,String homePhone,String email,String photoUrl, String job) {
+        super(firstName, lastName, username, password, nationalId, dateOfBirth, placeOfBirth, gender,mobilePhone,homePhone,email,photoUrl);
         this.job = job;
     }
 }

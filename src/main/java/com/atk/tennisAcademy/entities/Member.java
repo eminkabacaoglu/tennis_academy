@@ -1,6 +1,5 @@
 package com.atk.tennisAcademy.entities;
 
-import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -13,7 +12,6 @@ import java.time.LocalDate;
 @Entity
 @Table(name = "members")
 public class Member extends Person{
-    private String memberNo;
     private String job;
     private String fatherName;
     private String motherName;
@@ -21,16 +19,17 @@ public class Member extends Person{
     private LocalDate dateOfMembershipEnd;
     @ManyToOne
     @JoinColumn(name = "membership_status_id")
-    private Status membershipStatus;
+    private MembershipStatus membershipStatus;
 
     @ManyToOne
     @JoinColumn(name = "member_type_id")
     private MemberType memberType;
 
+    private String note;
+
     @Builder
-    public Member(String firstName, String lastName, String username, String password, String nationalId, LocalDate dateOfBirth, String placeOfBirth, Gender gender, String memberNo, String job, String fatherName, String motherName, LocalDate dateOfMembershipBegin, LocalDate dateOfMembershipEnd, Status membershipStatus, MemberType memberType) {
-        super(firstName, lastName, username, password, nationalId, dateOfBirth, placeOfBirth, gender);
-        this.memberNo = memberNo;
+    public Member(String firstName, String lastName, String username, String password, String nationalId, LocalDate dateOfBirth, String placeOfBirth, Gender gender,String mobilePhone,String homePhone,String email, String photoUrl, String job, String fatherName, String motherName, LocalDate dateOfMembershipBegin, LocalDate dateOfMembershipEnd, MembershipStatus membershipStatus, MemberType memberType,String note) {
+        super(firstName, lastName, username, password, nationalId, dateOfBirth, placeOfBirth, gender,mobilePhone,homePhone,email,photoUrl);
         this.job = job;
         this.fatherName = fatherName;
         this.motherName = motherName;
@@ -38,5 +37,6 @@ public class Member extends Person{
         this.dateOfMembershipEnd = dateOfMembershipEnd;
         this.membershipStatus = membershipStatus;
         this.memberType = memberType;
+        this.note = note;
     }
 }

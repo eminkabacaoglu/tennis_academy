@@ -10,10 +10,11 @@ import javax.persistence.*;
 import java.time.LocalDate;
 
 
+@Entity
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@MappedSuperclass
+@Inheritance(strategy = InheritanceType.JOINED)
 public class Person {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -30,11 +31,18 @@ public class Person {
     private LocalDate dateOfBirth;
     private String placeOfBirth;
 
+    private String mobilePhone;
+    private String homePhone;
+    private String email;
+
     private boolean isActive = true;
     @Enumerated(EnumType.STRING)
     Gender gender;
 
-    public Person(String firstName, String lastName, String username, String password, String nationalId, LocalDate dateOfBirth, String placeOfBirth,  Gender gender) {
+    String photoUrl;
+    private boolean isWebReservation=true;
+
+    public Person(String firstName, String lastName, String username, String password, String nationalId, LocalDate dateOfBirth, String placeOfBirth,  Gender gender,String mobilePhone,String homePhone,String email,String photoUrl) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.username = username;
@@ -43,7 +51,13 @@ public class Person {
         this.dateOfBirth = dateOfBirth;
         this.placeOfBirth = placeOfBirth;
         this.gender = gender;
+        this.mobilePhone = mobilePhone;
+        this.homePhone = homePhone;
+        this.photoUrl = photoUrl;
+        this.email = email;
     }
+
+
 
     public enum Gender{
         Female,

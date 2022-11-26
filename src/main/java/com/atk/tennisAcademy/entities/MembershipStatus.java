@@ -15,7 +15,7 @@ import javax.persistence.Id;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class Status {
+public class MembershipStatus {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long statusId;

@@ -1,13 +1,9 @@
 package com.atk.tennisAcademy.dataAccess;
 
-import com.atk.tennisAcademy.entities.Parent;
-import com.atk.tennisAcademy.entities.Person;
-import com.atk.tennisAcademy.entities.Status;
+import com.atk.tennisAcademy.entities.MembershipStatus;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-
-import static org.junit.jupiter.api.Assertions.*;
 
 @SpringBootTest
 class StatusRepositoryTest {
@@ -16,7 +12,7 @@ class StatusRepositoryTest {
 
     @Test
     public void saveStatus(){
-        Status status = Status.builder()
+        MembershipStatus status = MembershipStatus.builder()
                 .statusName("Faal")
                 .build();
         statusRepository.save(status);
