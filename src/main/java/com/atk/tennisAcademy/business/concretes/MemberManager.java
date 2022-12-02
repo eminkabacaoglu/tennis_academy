@@ -18,12 +18,26 @@ public class MemberManager implements MemberService {
     }
 
     @Override
-    public Member getMember(Long id) {
+    public Member getMemberById(Long id) {
         return memberRepository.findById(id).orElse(null);
     }
 
     @Override
-    public void deteleMember(Long id) {
-        memberRepository.deleteById(id);
+    public boolean deleteMember(Long id) {
+        Member member;
+        try {
+            member = getMemberById(id);
+            memberRepository.delete(member);
+            return true;
+        }catch (Exception e){
+            return false;
+        }
+
+    }
+
+    @Override
+    public Member saveMember(Member member) {
+        memberRepository.save(member);
+        return member;
     }
 }

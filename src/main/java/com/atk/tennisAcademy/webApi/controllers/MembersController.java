@@ -1,12 +1,14 @@
 package com.atk.tennisAcademy.webApi.controllers;
 
 import com.atk.tennisAcademy.business.abstracts.MemberService;
+import com.atk.tennisAcademy.entities.Employee;
 import com.atk.tennisAcademy.entities.Member;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+@CrossOrigin(origins = "http://localhost:3000")
 @RestController
 @RequestMapping("/members")
 public class MembersController {
@@ -21,7 +23,19 @@ public class MembersController {
 
     @GetMapping("/{id}")
     public Member getMember(@PathVariable Long id){
-        return memberService.getMember(id);
+        return memberService.getMemberById(id);
+    }
+
+    @PostMapping
+    public Member saveMember(@RequestBody Member member){
+        return memberService.saveMember(member);
+    }
+
+    @DeleteMapping("/{id}")
+    public boolean deleteMember(@PathVariable Long id){
+           return memberService.deleteMember(id);
+
+
     }
 
 

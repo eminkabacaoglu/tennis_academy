@@ -53,7 +53,7 @@ class StudentRepositoryTest {
                         .build();
 
 //        student.addParent(parentRepository.findById(1L).get());
-        student.addParent(memberRepository.findById(2L).get());
+        student.addMember(memberRepository.findById(2L).get());
 //        student.addParent(parent);
 //        student.addParent(parent2);
         studentRepository.save(student);

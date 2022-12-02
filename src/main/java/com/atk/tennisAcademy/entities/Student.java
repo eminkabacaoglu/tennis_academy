@@ -1,13 +1,10 @@
 package com.atk.tennisAcademy.entities;
 
-import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import lombok.experimental.SuperBuilder;
 
 import javax.persistence.*;
-import javax.transaction.Transactional;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
@@ -24,10 +21,10 @@ public class Student extends Person{
 
     @ManyToMany(cascade =CascadeType.ALL,fetch=FetchType.LAZY)
     @JoinTable(
-            name = "student_parent",
+            name = "student_member",
             joinColumns = @JoinColumn(name = "student_id",
             referencedColumnName = "id"),
-            inverseJoinColumns = @JoinColumn(name = "parent_id",
+            inverseJoinColumns = @JoinColumn(name = "member_id",
             referencedColumnName = "id"))
     private List<Member> members;
     @Builder
@@ -54,7 +51,7 @@ public class Student extends Person{
         }
     }
 
-    public void addParent(Member member){
+    public void addMember(Member member){
         if(members ==null) members = new ArrayList<>();
         members.add(member);
     }
