@@ -13,8 +13,7 @@ class MemberRepositoryTest {
 
     @Autowired
     private  MemberRepository memberRepository;
-    @Autowired
-    private  StatusRepository statusRepository;
+
 
     @Autowired
     private MemberTypeRepository memberTypeRepository;

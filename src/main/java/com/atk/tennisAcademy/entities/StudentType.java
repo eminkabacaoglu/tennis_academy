@@ -9,13 +9,14 @@ import javax.persistence.*;
 
 @Entity
 @Data
-@Builder
 @AllArgsConstructor
 @NoArgsConstructor
-@Table(name = "membership_statuses")
-public class MembershipStatus {
+@Builder
+@Table(name = "student_types")
+public class StudentType {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String statusName;
+    private String typeCode;
+    private String description;
 }

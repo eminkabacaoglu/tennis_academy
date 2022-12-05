@@ -22,4 +22,15 @@ public class MemberTypeManager implements MemberTypeService {
     public MemberType saveMemberType(MemberType memberType) {
         return memberTypeRepository.save(memberType);
     }
+
+    @Override
+    public boolean deleteMemberType(Long id) {
+       try {
+           memberTypeRepository.deleteById(id);
+           return true;
+       }catch (Exception e){
+           return false;
+       }
+
+    }
 }

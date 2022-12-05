@@ -24,10 +24,8 @@ public class MemberManager implements MemberService {
 
     @Override
     public boolean deleteMember(Long id) {
-        Member member;
         try {
-            member = getMemberById(id);
-            memberRepository.delete(member);
+            memberRepository.deleteById(id);
             return true;
         }catch (Exception e){
             return false;
