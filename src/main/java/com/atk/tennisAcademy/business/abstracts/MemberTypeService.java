@@ -8,4 +8,6 @@ public interface MemberTypeService {
     List<MemberType> getAllMemberTypes();
 
     MemberType saveMemberType(MemberType memberType);
+
+    boolean deleteMemberType(Long id);
 }
