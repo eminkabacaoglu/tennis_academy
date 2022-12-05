@@ -9,13 +9,11 @@ import javax.persistence.*;
 
 @Entity
 @Table(name = "employee_types")
-@AllArgsConstructor
 @NoArgsConstructor
 @Data
-@Builder
-public class EmployeeType {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-    private String description;
+public class EmployeeType extends PersonType{
+    @Builder
+    public EmployeeType(Long id, String typeCode, String description) {
+        super(id, typeCode, description);
+    }
 }

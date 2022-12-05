@@ -9,14 +9,11 @@ import javax.persistence.*;
 
 @Entity
 @Data
-@AllArgsConstructor
 @NoArgsConstructor
-@Builder
 @Table(name = "student_types")
-public class StudentType {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-    private String typeCode;
-    private String description;
+public class StudentType extends PersonType{
+    @Builder
+    public StudentType(Long id, String typeCode, String description) {
+        super(id, typeCode, description);
+    }
 }

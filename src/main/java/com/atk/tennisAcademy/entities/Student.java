@@ -17,7 +17,10 @@ public class Student extends Person{
     private String school;
     @Enumerated(EnumType.STRING)
     private AttendanceType attendanceType;
-//    private StudentType studentType;
+
+    @ManyToOne
+    @JoinColumn(name = "student_type_id")
+    private StudentType studentType;
 
     @ManyToMany(cascade =CascadeType.ALL,fetch=FetchType.LAZY)
     @JoinTable(
@@ -28,10 +31,11 @@ public class Student extends Person{
             referencedColumnName = "id"))
     private List<Member> members;
     @Builder
-    public Student(String firstName, String lastName, String username, String password, String nationalId, LocalDate dateOfBirth, String placeOfBirth, Gender gender,String mobilePhone,String homePhone,String email,String photoUrl, String school,AttendanceType attendanceType) {
+    public Student(String firstName, String lastName, String username, String password, String nationalId, LocalDate dateOfBirth, String placeOfBirth, Gender gender,String mobilePhone,String homePhone,String email,String photoUrl, String school,AttendanceType attendanceType,StudentType studentType) {
         super(firstName, lastName, username, password, nationalId, dateOfBirth, placeOfBirth, gender,mobilePhone,homePhone,email,photoUrl);
         this.school = school;
         this.attendanceType = attendanceType;
+        this.studentType=studentType;
     }
     public enum AttendanceType{
         General{
