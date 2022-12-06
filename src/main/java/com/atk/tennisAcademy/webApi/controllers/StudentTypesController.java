@@ -20,6 +20,11 @@ public class StudentTypesController {
         return studentTypeService.getAllStudentTypes();
     }
 
+    @GetMapping("/{id}")
+    public StudentType getStudentbyId(@PathVariable Long id){
+        return studentTypeService.getStudentTypeById(id);
+    }
+
     @PostMapping
     public StudentType saveStudentType(@RequestBody StudentType studentType){
         return studentTypeService.saveStudentType(studentType);

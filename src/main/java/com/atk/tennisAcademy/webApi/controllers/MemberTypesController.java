@@ -20,6 +20,11 @@ public class MemberTypesController {
         return memberTypeService.getAllMemberTypes();
     }
 
+    @GetMapping("/{id}")
+    public MemberType getMemberTypeById(@PathVariable Long id){
+        return memberTypeService.getMemberTypeById(id);
+    }
+
     @PostMapping
     public MemberType saveMemberType(@RequestBody MemberType memberType){
         return memberTypeService.saveMemberType(memberType);

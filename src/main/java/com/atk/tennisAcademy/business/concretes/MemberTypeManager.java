@@ -33,4 +33,9 @@ public class MemberTypeManager implements MemberTypeService {
        }
 
     }
+
+    @Override
+    public MemberType getMemberTypeById(Long id) {
+        return memberTypeRepository.findById(id).orElse(null);
+    }
 }

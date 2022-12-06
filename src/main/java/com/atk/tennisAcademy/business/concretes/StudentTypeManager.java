@@ -33,4 +33,9 @@ public class StudentTypeManager implements StudentTypeService {
             return false;
         }
     }
+
+    @Override
+    public StudentType getStudentTypeById(Long id) {
+        return studentTypeRepository.findById(id).orElse(null);
+    }
 }

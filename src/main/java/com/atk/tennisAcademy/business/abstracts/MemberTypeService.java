@@ -10,4 +10,6 @@ public interface MemberTypeService {
     MemberType saveMemberType(MemberType memberType);
 
     boolean deleteMemberType(Long id);
+
+    MemberType getMemberTypeById(Long id);
 }
