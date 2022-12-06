@@ -38,4 +38,16 @@ public class MemberTypeManager implements MemberTypeService {
     public MemberType getMemberTypeById(Long id) {
         return memberTypeRepository.findById(id).orElse(null);
     }
+
+    @Override
+    public MemberType updateMemberType(Long id, MemberType memberType) {
+        MemberType foundMemberType = getMemberTypeById(id);
+        if (foundMemberType!=null) {
+            foundMemberType.setTypeCode(memberType.getTypeCode());
+            foundMemberType.setDescription(memberType.getDescription());
+            memberTypeRepository.save(foundMemberType);
+            return foundMemberType;
+        } else
+            return null;
+    }
 }

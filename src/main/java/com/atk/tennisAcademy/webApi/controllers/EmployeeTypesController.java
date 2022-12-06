@@ -30,4 +30,14 @@ public class EmployeeTypesController {
         return employeeTypeService.deleteEmployeeType(id);
     }
 
+    @PostMapping
+    public EmployeeType saveEmployeeType(@RequestBody EmployeeType employeeType){
+        return employeeTypeService.saveEmployeeType(employeeType);
+    }
+
+    @PutMapping("/{id}")
+    public EmployeeType updateEmployeeType(@PathVariable Long id, @RequestBody EmployeeType employeeType){
+        return employeeTypeService.updateEmployeeType(id,employeeType);
+    }
+
 }

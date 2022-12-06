@@ -8,6 +8,7 @@ public interface MemberService {
     List<Member> getAllMembers();
     Member getMemberById(Long id);
     boolean deleteMember(Long id);
-
     Member saveMember(Member member);
+
+    Member updateMember(Long id,Member member);
 }

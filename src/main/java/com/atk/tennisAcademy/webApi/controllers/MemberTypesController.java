@@ -35,4 +35,9 @@ public class MemberTypesController {
         return  memberTypeService.deleteMemberType(id);
     }
 
+    @PutMapping("/{id}")
+    public MemberType updateMemberType(@PathVariable Long id,@RequestBody MemberType memberType){
+        return memberTypeService.updateMemberType(id,memberType);
+    }
+
 }

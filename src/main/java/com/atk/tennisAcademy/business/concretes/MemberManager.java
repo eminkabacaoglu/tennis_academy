@@ -30,12 +30,18 @@ public class MemberManager implements MemberService {
         }catch (Exception e){
             return false;
         }
-
     }
 
     @Override
     public Member saveMember(Member member) {
         memberRepository.save(member);
         return member;
+    }
+
+    @Override
+    public Member updateMember(Long id, Member member) {
+        Member foundMember = getMemberById(id);
+
+        return foundMember;
     }
 }

@@ -38,4 +38,19 @@ public class StudentTypeManager implements StudentTypeService {
     public StudentType getStudentTypeById(Long id) {
         return studentTypeRepository.findById(id).orElse(null);
     }
+
+    @Override
+    public StudentType updateStudentType(Long id, StudentType studentType) {
+        StudentType foundStudentType = getStudentTypeById(id);
+        if(foundStudentType!=null){
+            foundStudentType.setTypeCode(studentType.getTypeCode());
+            foundStudentType.setDescription(studentType.getDescription());
+            studentTypeRepository.save(foundStudentType);
+            return foundStudentType;
+        }
+        else{
+            return null;
+        }
+
+    }
 }

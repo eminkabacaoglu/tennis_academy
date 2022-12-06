@@ -34,4 +34,9 @@ public class StudentTypesController {
     public boolean deleteStudentType(@PathVariable Long id){
         return studentTypeService.deleteStudentType(id);
     }
+
+    @PutMapping("/{id}")
+    public StudentType updateStudentType(@PathVariable Long id,@RequestBody StudentType studentType){
+        return studentTypeService.updateStudentType(id,studentType);
+    }
 }

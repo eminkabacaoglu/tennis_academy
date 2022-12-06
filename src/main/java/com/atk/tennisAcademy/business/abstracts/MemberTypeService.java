@@ -12,4 +12,6 @@ public interface MemberTypeService {
     boolean deleteMemberType(Long id);
 
     MemberType getMemberTypeById(Long id);
+
+    MemberType updateMemberType(Long id,MemberType memberType);
 }

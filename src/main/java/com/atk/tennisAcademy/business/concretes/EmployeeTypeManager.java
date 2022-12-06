@@ -37,4 +37,19 @@ public class EmployeeTypeManager implements EmployeeTypeService {
     public EmployeeType getEmployeeTypeById(Long id) {
         return employeeTypeRepository.findById(id).orElse(null);
     }
+
+    @Override
+    public EmployeeType updateEmployeeType(Long id, EmployeeType employeeType) {
+        EmployeeType foundEmployeeType = getEmployeeTypeById(id);
+        if (foundEmployeeType != null){
+            foundEmployeeType.setTypeCode(employeeType.getTypeCode());
+            foundEmployeeType.setDescription(employeeType.getDescription());
+            employeeTypeRepository.save(foundEmployeeType);
+            return foundEmployeeType;
+        }else{
+            return null;
+        }
+
+
+    }
 }

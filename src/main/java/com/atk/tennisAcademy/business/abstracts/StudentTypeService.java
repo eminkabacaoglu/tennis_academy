@@ -12,4 +12,6 @@ public interface StudentTypeService {
     boolean deleteStudentType(Long id);
 
     StudentType getStudentTypeById(Long id);
+
+    StudentType updateStudentType(Long id, StudentType studentType);
 }

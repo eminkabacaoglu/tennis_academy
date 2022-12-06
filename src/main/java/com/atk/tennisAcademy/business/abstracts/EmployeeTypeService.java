@@ -10,4 +10,6 @@ public interface EmployeeTypeService {
     boolean deleteEmployeeType(Long id);
 
     EmployeeType getEmployeeTypeById(Long id);
+
+    EmployeeType updateEmployeeType(Long id, EmployeeType employeeType);
 }
