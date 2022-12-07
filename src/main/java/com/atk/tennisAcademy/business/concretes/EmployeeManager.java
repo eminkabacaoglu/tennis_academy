@@ -17,4 +17,32 @@ public class EmployeeManager implements EmployeeService {
     public List<Employee> getAllEmployees() {
         return employeeRepository.findAll();
     }
+
+    @Override
+    public Employee getEmployeeById(Long id) {
+        return employeeRepository.findById(id).orElse(null);
+    }
+
+    @Override
+    public Employee saveEmployee(Employee employee) {
+        return employeeRepository.save(employee);
+    }
+
+    @Override
+    public boolean deleteEmployee(Long id) {
+        try {
+            employeeRepository.deleteById(id);
+            return true;
+        }catch (Exception e){
+            return false;
+        }
+    }
+
+    @Override
+    public Employee updateEmployee(Long id, Employee employee) {
+        //Employee foundEmployee = getEmployeeById(id);
+        //foundEmployee =employee;// ??
+        employeeRepository.save(employee);
+        return employee;
+    }
 }

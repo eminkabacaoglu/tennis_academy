@@ -34,14 +34,14 @@ public class MemberManager implements MemberService {
 
     @Override
     public Member saveMember(Member member) {
-        memberRepository.save(member);
-        return member;
+        return memberRepository.save(member);
     }
 
     @Override
     public Member updateMember(Long id, Member member) {
-        Member foundMember = getMemberById(id);
-
-        return foundMember;
+        //Member foundMember = getMemberById(id);
+        //foundMember=member;// ??
+        memberRepository.save(member);
+        return member;
     }
 }
