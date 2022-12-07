@@ -44,9 +44,24 @@ public class StudentManager implements StudentService {
         Student foundStudent = getStudentById(id);
         foundStudent.setFirstName(student.getFirstName());
         foundStudent.setLastName(student.getLastName());
-        foundStudent =student;
-        studentRepository.save(foundStudent);
-        return foundStudent;
+        foundStudent.setUsername(student.getUsername());
+        foundStudent.setPassword(student.getPassword());
+        foundStudent.setNationalId(student.getNationalId());
+        foundStudent.setDateOfBirth(student.getDateOfBirth());
+        foundStudent.setPlaceOfBirth(student.getPlaceOfBirth());
+        foundStudent.setMobilePhone(student.getMobilePhone());
+        foundStudent.setHomePhone(student.getHomePhone());
+        foundStudent.setEmail(student.getEmail());
+        foundStudent.setGender(student.getGender());
+        foundStudent.setPhotoUrl(student.getPhotoUrl());
+        foundStudent.setSchool(student.getSchool());
+        foundStudent.setAttendanceType(student.getAttendanceType());
+        foundStudent.setStudentType(student.getStudentType());
+        foundStudent.setMembers(student.getMembers());
+        foundStudent.setActive(student.isActive());
+        foundStudent.setWebReservation(student.isWebReservation());
+
+        return studentRepository.save(foundStudent);
     }
 
 

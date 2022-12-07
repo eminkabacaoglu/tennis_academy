@@ -39,8 +39,8 @@ public class Person {
     @Enumerated(EnumType.STRING)
     Gender gender;
 
-    String photoUrl;
-    private boolean isWebReservation=true;
+    private String photoUrl;
+    private boolean isWebReservation = true;
 
     public Person(String firstName, String lastName, String username, String password, String nationalId, LocalDate dateOfBirth, String placeOfBirth,  Gender gender,String mobilePhone,String homePhone,String email,String photoUrl) {
         this.firstName = firstName;

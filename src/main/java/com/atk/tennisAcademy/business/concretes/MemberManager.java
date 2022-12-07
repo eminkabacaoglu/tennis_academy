@@ -39,9 +39,32 @@ public class MemberManager implements MemberService {
 
     @Override
     public Member updateMember(Long id, Member member) {
-        //Member foundMember = getMemberById(id);
-        //foundMember=member;// ??
-        memberRepository.save(member);
-        return member;
+        Member foundMember = getMemberById(id);
+
+        foundMember.setFirstName(member.getFirstName());
+        foundMember.setLastName(member.getLastName());
+        foundMember.setUsername(member.getUsername());
+        foundMember.setPassword(member.getPassword());
+        foundMember.setNationalId(member.getNationalId());
+        foundMember.setDateOfBirth(member.getDateOfBirth());
+        foundMember.setPlaceOfBirth(member.getPlaceOfBirth());
+        foundMember.setMobilePhone(member.getMobilePhone());
+        foundMember.setHomePhone(member.getHomePhone());
+        foundMember.setEmail(member.getEmail());
+        foundMember.setGender(member.getGender());
+        foundMember.setPhotoUrl(member.getPhotoUrl());
+        foundMember.setJob(member.getJob());
+        foundMember.setFatherName(member.getFatherName());
+        foundMember.setMotherName(member.getMotherName());
+        foundMember.setDateOfMembershipBegin(member.getDateOfMembershipBegin());
+        foundMember.setDateOfMembershipEnd(member.getDateOfMembershipEnd());
+        foundMember.setMembershipStatus(member.getMembershipStatus());
+        foundMember.setMemberType(member.getMemberType());
+        foundMember.setNote(member.getNote());
+        foundMember.setActive(member.isActive());
+        foundMember.setWebReservation(member.isWebReservation());
+
+        return memberRepository.save(foundMember);
+
     }
 }
