@@ -39,4 +39,6 @@ public class Member extends Person{
         this.memberType = memberType;
         this.note = note;
     }
+
+
 }
