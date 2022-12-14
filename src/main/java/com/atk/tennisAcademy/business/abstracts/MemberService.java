@@ -11,4 +11,7 @@ public interface MemberService {
     Member saveMember(Member member);
 
     Member updateMember(Long id,Member member);
+
+    List<String> nameMember();
+
 }

@@ -21,6 +21,11 @@ public class MembersController {
         return memberService.getAllMembers();
     }
 
+    @GetMapping("/names")// test amaçlı yazıldı silinecek.
+    public List<String> getNames(){
+        return memberService.nameMember();
+    }
+
     @GetMapping("/{id}")
     public Member getMember(@PathVariable Long id){
         return memberService.getMemberById(id);

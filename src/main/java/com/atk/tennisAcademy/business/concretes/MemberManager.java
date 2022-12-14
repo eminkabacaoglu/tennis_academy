@@ -4,6 +4,7 @@ import com.atk.tennisAcademy.business.abstracts.MemberService;
 import com.atk.tennisAcademy.dataAccess.MemberRepository;
 import com.atk.tennisAcademy.entities.Member;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -67,4 +68,11 @@ public class MemberManager implements MemberService {
         return memberRepository.save(foundMember);
 
     }
+
+    @Override
+    public List<String> nameMember() {
+        return memberRepository.getMembersNames();
+    }
+
+
 }
