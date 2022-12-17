@@ -5,9 +5,12 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.hibernate.annotations.ColumnDefault;
+import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
 
 import javax.persistence.*;
 import java.time.LocalDate;
+import java.util.Date;
 
 
 @Entity
@@ -43,7 +46,18 @@ public class Person {
     private String photoUrl;
     private boolean isWebReservation = true;
 
-    public Person(String firstName, String lastName, String username, String password, String nationalId, LocalDate dateOfBirth, String placeOfBirth,  Gender gender,String mobilePhone,String homePhone,String email,String photoUrl) {
+    @Column(name = "created_at")
+    @CreationTimestamp
+    private Date createdAt;
+
+    @Column(name = "last_modified_at")
+    @UpdateTimestamp
+    private Date lastModifiedAt;
+
+    private String createdBy;
+    private String modifiedBy;
+
+    public Person(String firstName, String lastName, String username, String password, String nationalId, LocalDate dateOfBirth, String placeOfBirth,  Gender gender,String mobilePhone,String homePhone,String email,String photoUrl, Date createdAt,Date lastModifiedAt) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.username = username;
@@ -56,6 +70,8 @@ public class Person {
         this.homePhone = homePhone;
         this.photoUrl = photoUrl;
         this.email = email;
+        this.createdAt = createdAt;
+        this.lastModifiedAt = lastModifiedAt;
     }
 
 

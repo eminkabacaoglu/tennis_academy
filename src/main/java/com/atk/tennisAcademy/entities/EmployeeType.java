@@ -6,6 +6,9 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.security.Timestamp;
+import java.time.LocalDateTime;
+import java.util.Date;
 
 @Entity
 @Table(name = "employee_types")
@@ -13,7 +16,8 @@ import javax.persistence.*;
 @Data
 public class EmployeeType extends PersonType{
     @Builder
-    public EmployeeType(Long id, String typeCode, String description) {
-        super(id, typeCode, description);
+    public EmployeeType(Long id, String typeCode, String description, Date createdAt, Date lastModifiedAt, String createdBy,String modifiedBy) {
+
+        super(id, typeCode, description,createdAt,lastModifiedAt, createdBy,modifiedBy);
     }
 }
