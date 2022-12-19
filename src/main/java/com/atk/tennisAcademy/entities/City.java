@@ -20,7 +20,7 @@ public class City {
     private String cityName;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @OnDelete(action = OnDeleteAction.CASCADE)
+//    @OnDelete(action = OnDeleteAction.CASCADE)
     @JoinColumn(name = "country_id")
     private Country country;
 }
