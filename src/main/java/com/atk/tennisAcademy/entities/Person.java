@@ -57,7 +57,7 @@ public class Person {
     private String createdBy;
     private String modifiedBy;
 
-    public Person(String firstName, String lastName, String username, String password, String nationalId, LocalDate dateOfBirth, String placeOfBirth,  Gender gender,String mobilePhone,String homePhone,String email,String photoUrl, Date createdAt,Date lastModifiedAt) {
+    public Person(String firstName, String lastName, String username, String password, String nationalId, LocalDate dateOfBirth, String placeOfBirth,  Gender gender,String mobilePhone,String homePhone,String email,String photoUrl, Date createdAt) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.username = username;
@@ -71,7 +71,6 @@ public class Person {
         this.photoUrl = photoUrl;
         this.email = email;
         this.createdAt = createdAt;
-        this.lastModifiedAt = lastModifiedAt;
     }
 
 

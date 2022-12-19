@@ -19,7 +19,7 @@ public class Student extends Person{
     @Enumerated(EnumType.STRING)
     private AttendanceType attendanceType;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "student_type_id")
     private StudentType studentType;
 
@@ -32,8 +32,8 @@ public class Student extends Person{
             referencedColumnName = "id"))
     private List<Member> members;
     @Builder
-    public Student(String firstName, String lastName, String username, String password, String nationalId, LocalDate dateOfBirth, String placeOfBirth, Gender gender, String mobilePhone, String homePhone, String email, String photoUrl, Date createdAt, Date modifiedAt, String school, AttendanceType attendanceType, StudentType studentType) {
-        super(firstName, lastName, username, password, nationalId, dateOfBirth, placeOfBirth, gender,mobilePhone,homePhone,email,photoUrl,createdAt,modifiedAt);
+    public Student(String firstName, String lastName, String username, String password, String nationalId, LocalDate dateOfBirth, String placeOfBirth, Gender gender, String mobilePhone, String homePhone, String email, String photoUrl, Date createdAt, String school, AttendanceType attendanceType, StudentType studentType) {
+        super(firstName, lastName, username, password, nationalId, dateOfBirth, placeOfBirth, gender,mobilePhone,homePhone,email,photoUrl,createdAt);
         this.school = school;
         this.attendanceType = attendanceType;
         this.studentType=studentType;
