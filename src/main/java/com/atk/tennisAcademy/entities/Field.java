@@ -24,7 +24,7 @@ public class Field {
     private boolean isActive = true;
     private boolean isWebActive = true;
 
-    @ManyToOne//fetch = FetchType.LAZY
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "field_type_id")
     private FieldType fieldType;
 

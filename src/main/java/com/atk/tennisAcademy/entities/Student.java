@@ -32,8 +32,8 @@ public class Student extends Person{
             referencedColumnName = "id"))
     private List<Member> members;
     @Builder
-    public Student(String firstName, String lastName, String username, String password, String nationalId, LocalDate dateOfBirth, String placeOfBirth, Gender gender, String mobilePhone, String homePhone, String email, String photoUrl, Date createdAt, String school, AttendanceType attendanceType, StudentType studentType) {
-        super(firstName, lastName, username, password, nationalId, dateOfBirth, placeOfBirth, gender,mobilePhone,homePhone,email,photoUrl,createdAt);
+    public Student(String firstName, String lastName, String username, String password, String nationalId, LocalDate dateOfBirth, String placeOfBirth, Gender gender, String mobilePhone, String homePhone, String email, String photoUrl,City city,County county, Date createdAt,String createdBy, String school, AttendanceType attendanceType, StudentType studentType) {
+        super(firstName, lastName, username, password, nationalId, dateOfBirth, placeOfBirth, gender,mobilePhone,homePhone,email,photoUrl,city,county,createdAt,createdBy);
         this.school = school;
         this.attendanceType = attendanceType;
         this.studentType=studentType;
@@ -57,7 +57,9 @@ public class Student extends Person{
     }
 
     public void addMember(Member member){
-        if(members ==null) members = new ArrayList<>();
+        if(members ==null) {
+            members = new ArrayList<>();
+        }
         members.add(member);
     }
 }
