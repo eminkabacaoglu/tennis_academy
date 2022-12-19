@@ -4,9 +4,9 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.hibernate.annotations.ColumnDefault;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
+import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import javax.persistence.*;
 import java.time.LocalDate;
@@ -46,9 +46,20 @@ public class Person {
     private String photoUrl;
     private boolean isWebReservation = true;
 
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "city_id")
+    private City city;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "county_id")
+    private County county;
+
+    private String address;
+
     @Column(name = "created_at")
     @CreationTimestamp
     private Date createdAt;
+
 
     @Column(name = "last_modified_at")
     @UpdateTimestamp
@@ -57,7 +68,7 @@ public class Person {
     private String createdBy;
     private String modifiedBy;
 
-    public Person(String firstName, String lastName, String username, String password, String nationalId, LocalDate dateOfBirth, String placeOfBirth,  Gender gender,String mobilePhone,String homePhone,String email,String photoUrl, Date createdAt) {
+    public Person(String firstName, String lastName, String username, String password, String nationalId, LocalDate dateOfBirth, String placeOfBirth,  Gender gender,String mobilePhone,String homePhone,String email,String photoUrl,City city,County county, Date createdAt,String createdBy) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.username = username;
@@ -69,8 +80,11 @@ public class Person {
         this.mobilePhone = mobilePhone;
         this.homePhone = homePhone;
         this.photoUrl = photoUrl;
+        this.city = city;
+        this.county = county;
         this.email = email;
         this.createdAt = createdAt;
+        this.createdBy = createdBy;
     }
 
 
