@@ -22,7 +22,7 @@ public class City {
     private Long id;
     private String cityName;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne
     @JoinColumn(name = "country_id")
     //    @OnDelete(action = OnDeleteAction.CASCADE)
     private Country country;
