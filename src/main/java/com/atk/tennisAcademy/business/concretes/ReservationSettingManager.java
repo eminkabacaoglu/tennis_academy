@@ -54,6 +54,7 @@ public class ReservationSettingManager implements ReservationSettingService {
             foundReservationSetting.setWebReservationEndingTime(reservationSetting.getWebReservationEndingTime());
             foundReservationSetting.setPlayerWaitingMinute(reservationSetting.getPlayerWaitingMinute());
             foundReservationSetting.setMaxNumberOfDaysOwed(reservationSetting.getMaxNumberOfDaysOwed());
+            foundReservationSetting.setModifiedBy(reservationSetting.getModifiedBy());
             return reservationSettingRepository.save(foundReservationSetting);
         }else{return null;}
 

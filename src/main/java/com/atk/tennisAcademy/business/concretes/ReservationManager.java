@@ -49,6 +49,7 @@ public class ReservationManager implements ReservationService {
             foundReservation.setMember(reservation.getMember());
             foundReservation.setActive(reservation.isActive());
             foundReservation.setReservationDateTime(reservation.getReservationDateTime());
+            foundReservation.setModifiedBy(reservation.getModifiedBy());
             return reservationRepository.save(foundReservation);
         }else{
             return null;

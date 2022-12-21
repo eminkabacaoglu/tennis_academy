@@ -48,6 +48,7 @@ public class FieldManager implements FieldService {
             foundField.setFieldType(field.getFieldType());
             foundField.setActive(field.isActive());
             foundField.setWebActive(field.isWebActive());
+            foundField.setModifiedBy(field.getModifiedBy());
             return fieldRepository.save(foundField);
         } else{
             return null;

@@ -45,6 +45,7 @@ public class FieldTypeManager implements FieldTypeService {
         if(foundFieldType!=null){
             foundFieldType.setFieldTypeCode(fieldType.getFieldTypeCode());
             foundFieldType.setFieldTypeDescription(fieldType.getFieldTypeDescription());
+            foundFieldType.setModifiedBy(fieldType.getModifiedBy());
             fieldTypeRepository.save(foundFieldType);
             return foundFieldType;
         }

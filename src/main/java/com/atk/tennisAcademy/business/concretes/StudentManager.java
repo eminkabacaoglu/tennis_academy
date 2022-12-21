@@ -42,26 +42,32 @@ public class StudentManager implements StudentService {
     @Override
     public Student updateStudent(Long id, Student student) {
         Student foundStudent = getStudentById(id);
-        foundStudent.setFirstName(student.getFirstName());
-        foundStudent.setLastName(student.getLastName());
-        foundStudent.setUsername(student.getUsername());
-        foundStudent.setPassword(student.getPassword());
-        foundStudent.setNationalId(student.getNationalId());
-        foundStudent.setDateOfBirth(student.getDateOfBirth());
-        foundStudent.setPlaceOfBirth(student.getPlaceOfBirth());
-        foundStudent.setMobilePhone(student.getMobilePhone());
-        foundStudent.setHomePhone(student.getHomePhone());
-        foundStudent.setEmail(student.getEmail());
-        foundStudent.setGender(student.getGender());
-        foundStudent.setPhotoUrl(student.getPhotoUrl());
-        foundStudent.setSchool(student.getSchool());
-        foundStudent.setAttendanceType(student.getAttendanceType());
-        foundStudent.setStudentType(student.getStudentType());
-        foundStudent.setMembers(student.getMembers());
-        foundStudent.setActive(student.isActive());
-        foundStudent.setWebReservation(student.isWebReservation());
+        if(foundStudent != null){
+            foundStudent.setFirstName(student.getFirstName());
+            foundStudent.setLastName(student.getLastName());
+            foundStudent.setUsername(student.getUsername());
+            foundStudent.setPassword(student.getPassword());
+            foundStudent.setNationalId(student.getNationalId());
+            foundStudent.setDateOfBirth(student.getDateOfBirth());
+            foundStudent.setPlaceOfBirth(student.getPlaceOfBirth());
+            foundStudent.setMobilePhone(student.getMobilePhone());
+            foundStudent.setHomePhone(student.getHomePhone());
+            foundStudent.setEmail(student.getEmail());
+            foundStudent.setGender(student.getGender());
+            foundStudent.setPhotoUrl(student.getPhotoUrl());
+            foundStudent.setSchool(student.getSchool());
+            foundStudent.setAttendanceType(student.getAttendanceType());
+            foundStudent.setStudentType(student.getStudentType());
+            foundStudent.setMembers(student.getMembers());
+            foundStudent.setActive(student.isActive());
+            foundStudent.setWebReservation(student.isWebReservation());
+            foundStudent.setModifiedBy(student.getModifiedBy());
 
-        return studentRepository.save(foundStudent);
+            return studentRepository.save(foundStudent);
+        }else {
+            return null;
+        }
+
     }
 
 

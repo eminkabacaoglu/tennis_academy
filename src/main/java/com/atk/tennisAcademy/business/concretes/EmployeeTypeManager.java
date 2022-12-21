@@ -44,6 +44,7 @@ public class EmployeeTypeManager implements EmployeeTypeService {
         if (foundEmployeeType != null){
             foundEmployeeType.setTypeCode(employeeType.getTypeCode());
             foundEmployeeType.setDescription(employeeType.getDescription());
+            foundEmployeeType.setModifiedBy(employeeType.getModifiedBy());
             employeeTypeRepository.save(foundEmployeeType);
             return foundEmployeeType;
         }else{

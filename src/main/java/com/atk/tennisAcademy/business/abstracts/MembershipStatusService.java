@@ -8,7 +8,11 @@ import java.util.List;
 public interface MembershipStatusService {
     List<MembershipStatus> getAllMembershipStatuses();
 
-    MembershipStatus saveMembershipStatus(MembershipStatus memberType);
+    MembershipStatus saveMembershipStatus(MembershipStatus membershipStatus);
+
+    MembershipStatus getMembershipStatusById(Long id);
+    MembershipStatus updateMembershipStatus(Long id ,MembershipStatus membershipStatus);
+
 
     boolean deleteMembershipStatus(Long id);
 }

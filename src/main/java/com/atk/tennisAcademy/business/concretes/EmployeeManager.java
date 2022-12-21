@@ -41,25 +41,31 @@ public class EmployeeManager implements EmployeeService {
     @Override
     public Employee updateEmployee(Long id, Employee employee) {
         Employee foundEmployee = getEmployeeById(id);
-        foundEmployee.setFirstName(employee.getFirstName());
-        foundEmployee.setLastName(employee.getLastName());
-        foundEmployee.setUsername(employee.getUsername());
-        foundEmployee.setPassword(employee.getPassword());
-        foundEmployee.setNationalId(employee.getNationalId());
-        foundEmployee.setDateOfBirth(employee.getDateOfBirth());
-        foundEmployee.setPlaceOfBirth(employee.getPlaceOfBirth());
-        foundEmployee.setMobilePhone(employee.getMobilePhone());
-        foundEmployee.setHomePhone(employee.getHomePhone());
-        foundEmployee.setEmail(employee.getEmail());
-        foundEmployee.setGender(employee.getGender());
-        foundEmployee.setPhotoUrl(employee.getPhotoUrl());
-        foundEmployee.setEmployeeType(employee.getEmployeeType());
-        foundEmployee.setDriverLicense(employee.getDriverLicense());
-        foundEmployee.setMarried(employee.isMarried());
-        foundEmployee.setActive(employee.isActive());
-        foundEmployee.setWebReservation(employee.isWebReservation());
+        if(foundEmployee != null){
+            foundEmployee.setFirstName(employee.getFirstName());
+            foundEmployee.setLastName(employee.getLastName());
+            foundEmployee.setUsername(employee.getUsername());
+            foundEmployee.setPassword(employee.getPassword());
+            foundEmployee.setNationalId(employee.getNationalId());
+            foundEmployee.setDateOfBirth(employee.getDateOfBirth());
+            foundEmployee.setPlaceOfBirth(employee.getPlaceOfBirth());
+            foundEmployee.setMobilePhone(employee.getMobilePhone());
+            foundEmployee.setHomePhone(employee.getHomePhone());
+            foundEmployee.setEmail(employee.getEmail());
+            foundEmployee.setGender(employee.getGender());
+            foundEmployee.setPhotoUrl(employee.getPhotoUrl());
+            foundEmployee.setEmployeeType(employee.getEmployeeType());
+            foundEmployee.setDriverLicense(employee.getDriverLicense());
+            foundEmployee.setMarried(employee.isMarried());
+            foundEmployee.setActive(employee.isActive());
+            foundEmployee.setWebReservation(employee.isWebReservation());
+            foundEmployee.setModifiedBy(employee.getModifiedBy());
 
-        return employeeRepository.save(foundEmployee);
+            return employeeRepository.save(foundEmployee);
+        }else {
+            return null;
+        }
+
 
     }
 }

@@ -45,6 +45,7 @@ public class StudentTypeManager implements StudentTypeService {
         if(foundStudentType!=null){
             foundStudentType.setTypeCode(studentType.getTypeCode());
             foundStudentType.setDescription(studentType.getDescription());
+            foundStudentType.setModifiedBy(studentType.getModifiedBy());
             studentTypeRepository.save(foundStudentType);
             return foundStudentType;
         }

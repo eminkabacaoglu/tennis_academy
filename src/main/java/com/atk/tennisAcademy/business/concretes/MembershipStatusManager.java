@@ -1,6 +1,7 @@
 package com.atk.tennisAcademy.business.concretes;
 
 import com.atk.tennisAcademy.business.abstracts.MembershipStatusService;
+import com.atk.tennisAcademy.dataAccess.MemberRepository;
 import com.atk.tennisAcademy.dataAccess.MembershipStatusRepository;
 import com.atk.tennisAcademy.entities.MembershipStatus;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,6 +14,8 @@ public class MembershipStatusManager implements MembershipStatusService {
 
     @Autowired
     MembershipStatusRepository membershipStatusRepository;
+    @Autowired
+    private MemberRepository memberRepository;
 
     @Override
     public List<MembershipStatus> getAllMembershipStatuses() {
@@ -22,6 +25,24 @@ public class MembershipStatusManager implements MembershipStatusService {
     @Override
     public MembershipStatus saveMembershipStatus(MembershipStatus membershipStatus) {
         return membershipStatusRepository.save(membershipStatus);
+    }
+
+    @Override
+    public MembershipStatus getMembershipStatusById(Long id) {
+        return membershipStatusRepository.findById(id).orElse(null);
+    }
+
+    @Override
+    public MembershipStatus updateMembershipStatus(Long id, MembershipStatus membershipStatus) {
+        MembershipStatus foundMemberShipStatus = getMembershipStatusById(id);
+        if(foundMemberShipStatus !=null){
+            foundMemberShipStatus.setStatusName(membershipStatus.getStatusName());
+            foundMemberShipStatus.setModifiedBy(membershipStatus.getModifiedBy());
+            return membershipStatusRepository.save(membershipStatus);
+        }else {
+            return null;
+        }
+
     }
 
     @Override
