@@ -21,6 +21,11 @@ public class MembersController {
         return memberService.getAllMembers();
     }
 
+    @GetMapping("/active")
+    public List<Member> getAllActiveMembers(){
+        return memberService.getAllActiveMembers();
+    }
+
     @GetMapping("/names")// test amaçlı yazıldı silinecek.
     public List<String> getNames(){
         return memberService.nameMember();

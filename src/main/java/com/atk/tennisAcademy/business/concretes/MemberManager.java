@@ -30,6 +30,11 @@ public class MemberManager implements MemberService {
     }
 
     @Override
+    public List<Member> getAllActiveMembers() {
+        return memberRepository.findByIsActiveTrue();
+    }
+
+    @Override
     public Member getMemberById(Long id) {
         return memberRepository.findById(id).orElse(null);
     }
