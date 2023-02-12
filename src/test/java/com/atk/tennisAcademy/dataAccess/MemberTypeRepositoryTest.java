@@ -14,8 +14,8 @@ class MemberTypeRepositoryTest {
     @Test
     public void saveMemberType(){
         MemberType memberType = MemberType.builder()
-                .typeCode("ANT")
-                .description("Antrenör")
+                .typeCode("TST")
+                .description("Test")
                 .build();
         memberTypeRepository.save(memberType);
 

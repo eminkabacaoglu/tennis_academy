@@ -68,7 +68,7 @@ public class Person {
     private String createdBy;
     private String modifiedBy;
 
-    public Person(String firstName, String lastName, String username, String password, String nationalId, LocalDate dateOfBirth, String placeOfBirth,  Gender gender,String mobilePhone,String homePhone,String email,String photoUrl,City city,County county, Date createdAt,String createdBy) {
+    public Person(String firstName, String lastName, String username, String password, String nationalId, LocalDate dateOfBirth, String placeOfBirth,  Gender gender,String mobilePhone,String homePhone,String email,String photoUrl,City city,County county,String createdBy) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.username = username;
@@ -83,10 +83,8 @@ public class Person {
         this.city = city;
         this.county = county;
         this.email = email;
-        this.createdAt = createdAt;
         this.createdBy = createdBy;
     }
-
 
 
     public enum Gender{

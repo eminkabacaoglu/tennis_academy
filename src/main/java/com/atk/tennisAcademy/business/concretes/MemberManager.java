@@ -8,6 +8,7 @@ import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import java.util.List;
+import java.util.Random;
 
 
 //@Log4j2
@@ -33,6 +34,10 @@ public class MemberManager implements MemberService {
     public List<Member> getAllActiveMembers() {
         return memberRepository.findByIsActiveTrue();
     }
+    @Override
+    public List<Member> getAllPassiveMembers() {
+        return memberRepository.findByIsActiveFalse();
+    }
 
     @Override
     public Member getMemberById(Long id) {
@@ -52,6 +57,7 @@ public class MemberManager implements MemberService {
     @Override
     public Member saveMember(Member member) {
         log.info("Member is saved. Id: "+member.getId());
+        member.setUsername((member.getFirstName()+member.getLastName().charAt(0)).toLowerCase()+new Random().nextInt(100));
         return memberRepository.save(member);
     }
 
@@ -95,6 +101,8 @@ public class MemberManager implements MemberService {
     public List<String> nameMember() {
         return memberRepository.getMembersNames();
     }
+
+
 
 
 }

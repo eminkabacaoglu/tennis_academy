@@ -11,7 +11,9 @@ import java.util.List;
 public interface MemberRepository extends JpaRepository<Member,Long> {
 
     @Query(value = "Select first_name from persons",nativeQuery = true)
-    public List<String> getMembersNames();
-    public List<Member> findByIsActiveTrue();
+    List<String> getMembersNames();
+    List<Member> findByIsActiveTrue();
+
+    List<Member> findByIsActiveFalse();
 }
 

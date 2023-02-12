@@ -16,4 +16,5 @@ public interface MemberService {
 
     List<String> nameMember();
 
+    List<Member> getAllPassiveMembers();
 }

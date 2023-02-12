@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@CrossOrigin(origins = "http://localhost:3000")
+@CrossOrigin(origins = "http://localhost:4200")
 @RestController
 @RequestMapping("/members")
 public class MembersController {
@@ -24,6 +24,11 @@ public class MembersController {
     @GetMapping("/active")
     public List<Member> getAllActiveMembers(){
         return memberService.getAllActiveMembers();
+    }
+
+    @GetMapping("/passive")
+    public List<Member> getAllPassiveMembers(){
+        return memberService.getAllPassiveMembers();
     }
 
     @GetMapping("/names")// test amaçlı yazıldı silinecek.
