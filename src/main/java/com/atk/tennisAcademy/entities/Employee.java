@@ -17,7 +17,7 @@ public class Employee extends Person{
 
     private boolean isMarried=false;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "employee_type_id")
     private EmployeeType employeeType;
 

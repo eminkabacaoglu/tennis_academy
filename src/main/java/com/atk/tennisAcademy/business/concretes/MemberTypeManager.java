@@ -46,6 +46,7 @@ public class MemberTypeManager implements MemberTypeService {
             foundMemberType.setTypeCode(memberType.getTypeCode());
             foundMemberType.setDescription(memberType.getDescription());
             foundMemberType.setModifiedBy(memberType.getModifiedBy());
+            foundMemberType.setPaymentType(memberType.getPaymentType());
             memberTypeRepository.save(foundMemberType);
             return foundMemberType;
         } else

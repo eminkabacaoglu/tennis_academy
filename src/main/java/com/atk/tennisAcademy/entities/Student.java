@@ -23,7 +23,7 @@ public class Student extends Person{
     @JoinColumn(name = "student_type_id")
     private StudentType studentType;
 
-    @ManyToMany(cascade =CascadeType.ALL,fetch=FetchType.LAZY)
+    @ManyToMany(cascade =CascadeType.ALL,fetch=FetchType.EAGER)
     @JoinTable(
             name = "student_member",
             joinColumns = @JoinColumn(name = "student_id",

@@ -32,11 +32,11 @@ public class MemberManager implements MemberService {
 
     @Override
     public List<Member> getAllActiveMembers() {
-        return memberRepository.findByIsActiveTrue();
+        return memberRepository.findByIsActiveTrueOrderById();
     }
     @Override
     public List<Member> getAllPassiveMembers() {
-        return memberRepository.findByIsActiveFalse();
+        return memberRepository.findByIsActiveFalseOrderById();
     }
 
     @Override

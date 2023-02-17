@@ -15,7 +15,7 @@ import java.util.Date;
 public class MemberType extends PersonType{
 
 //    @Enumerated(EnumType.STRING)
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne()
     @JoinColumn(name = "payment_type_id")
     private PaymentType paymentType;
 

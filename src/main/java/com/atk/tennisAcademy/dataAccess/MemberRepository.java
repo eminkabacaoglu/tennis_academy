@@ -15,5 +15,9 @@ public interface MemberRepository extends JpaRepository<Member,Long> {
     List<Member> findByIsActiveTrue();
 
     List<Member> findByIsActiveFalse();
+
+    List<Member> findByIsActiveTrueOrderById();
+
+    List<Member> findByIsActiveFalseOrderById();
 }
 

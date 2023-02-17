@@ -20,11 +20,11 @@ public class Member extends Person{
     private String motherName;
     private LocalDate dateOfMembershipBegin;
     private LocalDate dateOfMembershipEnd;
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "membership_status_id")
     private MembershipStatus membershipStatus;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "member_type_id")
     private MemberType memberType;
 
