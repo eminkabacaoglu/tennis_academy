@@ -38,7 +38,7 @@ public class MembershipStatusManager implements MembershipStatusService {
         if(foundMemberShipStatus !=null){
             foundMemberShipStatus.setStatusName(membershipStatus.getStatusName());
             foundMemberShipStatus.setModifiedBy(membershipStatus.getModifiedBy());
-            return membershipStatusRepository.save(membershipStatus);
+            return membershipStatusRepository.save(foundMemberShipStatus);
         }else {
             return null;
         }

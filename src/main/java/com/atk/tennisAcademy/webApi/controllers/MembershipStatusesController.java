@@ -20,9 +20,18 @@ public class MembershipStatusesController {
         return membershipStatusService.getAllMembershipStatuses();
     }
 
+    @GetMapping("/{id}")
+    public MembershipStatus getMembershipStatusById(@PathVariable Long id){
+        return  membershipStatusService.getMembershipStatusById(id);
+    }
     @PostMapping
     public MembershipStatus saveMembershipStatus(@RequestBody MembershipStatus membershipStatus){
         return membershipStatusService.saveMembershipStatus(membershipStatus);
+    }
+
+    @PutMapping("/{id}")
+    public MembershipStatus updateMembershipStatus(@PathVariable Long id,@RequestBody MembershipStatus membershipStatus){
+        return membershipStatusService.updateMembershipStatus(id,membershipStatus);
     }
 
     @DeleteMapping("/{id}")
