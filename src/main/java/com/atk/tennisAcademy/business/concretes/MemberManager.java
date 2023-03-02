@@ -3,6 +3,7 @@ package com.atk.tennisAcademy.business.concretes;
 import com.atk.tennisAcademy.business.abstracts.MemberService;
 import com.atk.tennisAcademy.dataAccess.MemberRepository;
 import com.atk.tennisAcademy.entities.Member;
+import com.atk.tennisAcademy.tools.Utilities;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -57,7 +58,8 @@ public class MemberManager implements MemberService {
     @Override
     public Member saveMember(Member member) {
         log.info("Member is saved. Id: "+member.getId());
-        member.setUsername((member.getFirstName()+member.getLastName().charAt(0)).toLowerCase()+new Random().nextInt(100));
+
+        member.setUsername(Utilities.generateUsername(member.getFirstName(),member.getLastName()));
         return memberRepository.save(member);
     }
 

@@ -21,7 +21,6 @@ public class City {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String cityName;
-
     @ManyToOne
     @JoinColumn(name = "country_id")
     //    @OnDelete(action = OnDeleteAction.CASCADE)
@@ -37,4 +36,5 @@ public class City {
 
     private String createdBy;
     private String modifiedBy;
+
 }

@@ -6,6 +6,7 @@ import com.atk.tennisAcademy.entities.Member;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @CrossOrigin(origins = "http://localhost:4200")
@@ -53,7 +54,9 @@ public class MembersController {
 
     @PutMapping("/{id}")
     public Member updateMember(@PathVariable Long id,@RequestBody Member member){
+
         return memberService.updateMember(id,member);
+
     }
 
 
