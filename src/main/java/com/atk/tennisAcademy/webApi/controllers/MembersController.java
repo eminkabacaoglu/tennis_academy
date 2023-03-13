@@ -1,7 +1,6 @@
 package com.atk.tennisAcademy.webApi.controllers;
 
 import com.atk.tennisAcademy.business.abstracts.MemberService;
-import com.atk.tennisAcademy.entities.Employee;
 import com.atk.tennisAcademy.entities.Member;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;

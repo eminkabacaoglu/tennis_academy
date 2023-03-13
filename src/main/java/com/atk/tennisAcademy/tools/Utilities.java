@@ -1,5 +1,7 @@
 package com.atk.tennisAcademy.tools;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Random;
 
 public class Utilities {
@@ -12,6 +14,9 @@ public class Utilities {
         {
             usernameTextPart = usernameTextPart.replace(currentLetter[sayac], newLetter[sayac]);
         }
+
        return usernameTextPart + new Random().nextInt(1000);
+
+
     }
 }

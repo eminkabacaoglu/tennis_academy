@@ -16,6 +16,9 @@ import java.util.List;
 @Table(name = "students")
 public class Student extends Person{
     private String school;
+    private boolean isInBlacklist=false;
+
+    public String blackListDescription="";
     @Enumerated(EnumType.STRING)
     private AttendanceType attendanceType;
 

@@ -62,6 +62,8 @@ public class StudentManager implements StudentService {
             foundStudent.setActive(student.isActive());
             foundStudent.setWebReservation(student.isWebReservation());
             foundStudent.setModifiedBy(student.getModifiedBy());
+            foundStudent.setInBlacklist(student.isInBlacklist());
+            foundStudent.setBlackListDescription(student.getBlackListDescription());
 
             return studentRepository.save(foundStudent);
         }else {
