@@ -31,7 +31,7 @@ public class LevelsController {
         return levelService.saveLevel(level);
     }
 
-    @DeleteMapping("/id")
+    @DeleteMapping("/{id}")
     public boolean deleteFieldType(@PathVariable Long id){
         return levelService.deleteLevel(id);
     }

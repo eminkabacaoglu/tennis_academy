@@ -30,7 +30,7 @@ public class FieldTypesController {
         return fieldTypeService.saveFieldType(fieldType);
     }
 
-    @DeleteMapping("/id")
+    @DeleteMapping("/{id}")
     public boolean deleteFieldType(@PathVariable Long id){
         return fieldTypeService.deleteFieldType(id);
     }
