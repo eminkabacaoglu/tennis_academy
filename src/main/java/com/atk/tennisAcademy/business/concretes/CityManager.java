@@ -4,6 +4,7 @@ import com.atk.tennisAcademy.business.abstracts.CityService;
 import com.atk.tennisAcademy.dataAccess.CityRepository;
 import com.atk.tennisAcademy.entities.City;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -16,7 +17,7 @@ public class CityManager implements CityService {
 
     @Override
     public List<City> getAllCities() {
-        return cityRepository.findAll();
+        return cityRepository.findAll(Sort.by(Sort.Direction.ASC, "cityName"));
     }
 
     @Override

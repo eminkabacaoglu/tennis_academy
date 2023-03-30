@@ -76,6 +76,7 @@ public class MemberManager implements MemberService {
             foundMember.setPlaceOfBirth(member.getPlaceOfBirth());
             foundMember.setMobilePhone(member.getMobilePhone());
             foundMember.setHomePhone(member.getHomePhone());
+            foundMember.setCity(member.getCity());
             foundMember.setEmail(member.getEmail());
             foundMember.setGender(member.getGender());
             foundMember.setPhotoUrl(member.getPhotoUrl());
