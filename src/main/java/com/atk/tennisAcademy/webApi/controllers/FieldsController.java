@@ -16,12 +16,12 @@ public class FieldsController {
     FieldService fieldService;
 
     @GetMapping
-    public List<Field> getAllFieldTypes(){
+    public List<Field> getAllFields(){
         return fieldService.getAllFields();
     }
 
     @GetMapping("/{id}")
-    public Field getFieldTypeBuId(@PathVariable Long id){
+    public Field getFieldById(@PathVariable Long id){
         return fieldService.getFieldById(id);
     }
 
@@ -36,7 +36,7 @@ public class FieldsController {
     }
 
     @PutMapping("/{id}")
-    public Field updateFieldType(@PathVariable Long id, @RequestBody Field field){
+    public Field updateField(@PathVariable Long id, @RequestBody Field field){
         return fieldService.updateField(id,field);
     }
 }
