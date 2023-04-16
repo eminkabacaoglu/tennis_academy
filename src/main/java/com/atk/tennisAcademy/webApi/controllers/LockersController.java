@@ -29,7 +29,7 @@ public class LockersController {
         return lockerService.saveLocker(locker);
     }
 
-    @DeleteMapping("/id")
+    @DeleteMapping("/{id}")
     public boolean deleteLocker(@PathVariable Long id){
         return lockerService.deleteLocker(id);
     }

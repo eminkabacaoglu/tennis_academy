@@ -26,11 +26,11 @@ public class FieldsController {
     }
 
     @PostMapping
-    public Field saveFieldType(@RequestBody  Field fieldType){
-        return fieldService.saveField(fieldType);
+    public Field saveFieldType(@RequestBody  Field field){
+        return fieldService.saveField(field);
     }
 
-    @DeleteMapping("/id")
+    @DeleteMapping("/{id}")
     public boolean deleteField(@PathVariable Long id){
         return fieldService.deleteField(id);
     }
