@@ -65,7 +65,12 @@ public class StudentManager implements StudentService {
             foundStudent.setWebReservation(student.isWebReservation());
             foundStudent.setModifiedBy(student.getModifiedBy());
             foundStudent.setInBlacklist(student.isInBlacklist());
-            foundStudent.setBlackListDescription(student.getBlackListDescription());
+            if(!student.isInBlacklist()){
+                foundStudent.setBlackListDescription(null);
+            }
+            else {
+                foundStudent.setBlackListDescription(student.getBlackListDescription());
+            }
             foundStudent.setAlternativeParent(student.getAlternativeParent());
             foundStudent.setParentJob(student.getParentJob());
             foundStudent.setParentNameSurname(student.getParentNameSurname());
