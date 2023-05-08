@@ -27,6 +27,10 @@ public class Locker {
     @JoinColumn(name = "locker_type_id")
     private LockerType lockerType;
 
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "member_id")
+    private Member member;
+
     @Column(name = "created_at")
     @CreationTimestamp
     private Date createdAt;

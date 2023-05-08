@@ -48,7 +48,9 @@ public class StudentManager implements StudentService {
             foundStudent.setUsername(student.getUsername());
             foundStudent.setPassword(student.getPassword());
             foundStudent.setNationalId(student.getNationalId());
+            foundStudent.setCity(student.getCity());
             foundStudent.setDateOfBirth(student.getDateOfBirth());
+            foundStudent.setDateOfRegistration(student.getDateOfRegistration());
             foundStudent.setPlaceOfBirth(student.getPlaceOfBirth());
             foundStudent.setMobilePhone(student.getMobilePhone());
             foundStudent.setHomePhone(student.getHomePhone());
@@ -64,6 +66,10 @@ public class StudentManager implements StudentService {
             foundStudent.setModifiedBy(student.getModifiedBy());
             foundStudent.setInBlacklist(student.isInBlacklist());
             foundStudent.setBlackListDescription(student.getBlackListDescription());
+            foundStudent.setAlternativeParent(student.getAlternativeParent());
+            foundStudent.setParentJob(student.getParentJob());
+            foundStudent.setParentNameSurname(student.getParentNameSurname());
+            foundStudent.setParentWorkPlace(student.getParentWorkPlace());
 
             return studentRepository.save(foundStudent);
         }else {

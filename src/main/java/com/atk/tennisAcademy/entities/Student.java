@@ -21,9 +21,9 @@ public class Student extends Person{
     private String alternativeParent;
     private boolean isInBlacklist=false;
 
-    private LocalDate dateOfRegisteration;
+    private LocalDate dateOfRegistration;
 
-    public String blackListDescription="";
+    public String blackListDescription;
     @Enumerated(EnumType.STRING)
     private AttendanceType attendanceType;
 
@@ -44,13 +44,13 @@ public class Student extends Person{
             referencedColumnName = "id"))
     private List<Member> members;
     @Builder
-    public Student(String firstName, String lastName, String username, String password, String nationalId, LocalDate dateOfBirth, String placeOfBirth, Gender gender, String mobilePhone, String homePhone, String email, String photoUrl,City city,County county, String createdBy, String school, AttendanceType attendanceType, StudentType studentType,Level level,LocalDate dateOfRegisteration,String parentNameSurname,String parentJob,String parentWorkPlace,String alternativeParent) {
+    public Student(String firstName, String lastName, String username, String password, String nationalId, LocalDate dateOfBirth, String placeOfBirth, Gender gender, String mobilePhone, String homePhone, String email, String photoUrl,City city,County county, String createdBy, String school, AttendanceType attendanceType, StudentType studentType,Level level,LocalDate dateOfRegistration,String parentNameSurname,String parentJob,String parentWorkPlace,String alternativeParent) {
         super(firstName, lastName, username, password, nationalId, dateOfBirth, placeOfBirth, gender,mobilePhone,homePhone,email,photoUrl,city,county,createdBy);
         this.school = school;
         this.attendanceType = attendanceType;
         this.studentType=studentType;
         this.level = level;
-        this.dateOfRegisteration=dateOfRegisteration;
+        this.dateOfRegistration=dateOfRegistration;
         this.parentNameSurname=parentNameSurname;
         this.parentJob = parentJob;
         this.parentWorkPlace = parentWorkPlace;
