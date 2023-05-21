@@ -16,8 +16,8 @@ public class ReservationSettingsController {
     ReservationSettingService reservationSettingService;
 
     @GetMapping
-    public ReservationSetting getReservationSetting(@PathVariable Long id){
-        return reservationSettingService.getReservationSettingById(id);
+    public ReservationSetting getReservationSetting(){
+        return reservationSettingService.getReservationSettingFirst();
     }
 
     @PostMapping
@@ -25,13 +25,15 @@ public class ReservationSettingsController {
         return reservationSettingService.saveReservationSetting(reservationSetting);
     }
 
-    @DeleteMapping("/{id}")
-    public boolean deleteReservationSetting(@PathVariable Long id){
-        return reservationSettingService.deleteReservationSetting(id);
+    @DeleteMapping()
+    public boolean deleteReservationSetting(){
+        Long reservationSettingId=reservationSettingService.getReservationSettingFirst().getId();
+        return reservationSettingService.deleteReservationSetting(reservationSettingId);
     }
 
-    @PutMapping("/{id}")
-    public ReservationSetting updateReservationSetting(@PathVariable Long id, @RequestBody ReservationSetting reservationSetting){
-        return reservationSettingService.updateReservationSetting(id,reservationSetting);
+    @PutMapping()
+    public ReservationSetting updateReservationSetting(@RequestBody ReservationSetting reservationSetting){
+        Long reservationSettingId=reservationSettingService.getReservationSettingFirst().getId();
+        return reservationSettingService.updateReservationSetting(reservationSettingId,reservationSetting);
     }
 }

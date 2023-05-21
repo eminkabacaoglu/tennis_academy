@@ -19,7 +19,7 @@ public class Student extends Person{
     private String parentJob;
     private String parentWorkPlace;
     private String alternativeParent;
-    private boolean isInBlacklist=false;
+    private boolean isInBlacklist;
 
     private LocalDate dateOfRegistration;
 

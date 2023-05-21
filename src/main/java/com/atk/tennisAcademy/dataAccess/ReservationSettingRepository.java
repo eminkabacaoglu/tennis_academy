@@ -6,4 +6,5 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface ReservationSettingRepository extends JpaRepository<ReservationSetting,Long> {
+    ReservationSetting findFirstByOrderById();
 }

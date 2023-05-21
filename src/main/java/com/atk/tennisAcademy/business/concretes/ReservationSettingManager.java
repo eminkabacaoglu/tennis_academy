@@ -15,6 +15,12 @@ public class ReservationSettingManager implements ReservationSettingService {
     @Autowired
     ReservationSettingRepository reservationSettingRepository;
 
+
+    @Override
+    public ReservationSetting getReservationSettingFirst() {
+        return reservationSettingRepository.findFirstByOrderById();
+    }
+
     @Override
     public ReservationSetting getReservationSettingById(Long id) {
         return reservationSettingRepository.findById(id).orElse(null);
