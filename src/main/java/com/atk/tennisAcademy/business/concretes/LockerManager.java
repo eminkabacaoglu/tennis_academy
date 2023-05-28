@@ -2,7 +2,7 @@ package com.atk.tennisAcademy.business.concretes;
 
 import com.atk.tennisAcademy.business.abstracts.LockerService;
 import com.atk.tennisAcademy.dataAccess.LockerRepository;
-import com.atk.tennisAcademy.entities.Field;
+import com.atk.tennisAcademy.dataAccess.MemberRepository;
 import com.atk.tennisAcademy.entities.Locker;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -18,9 +18,20 @@ public class LockerManager implements LockerService {
         return lockerRepository.findAll();
     }
 
+
+    @Override
+    public List<Locker> getAllLockersMemberNull() {
+        return lockerRepository.findByMemberIsNull();
+    }
+
     @Override
     public Locker getLockerById(Long id) {
         return lockerRepository.findById(id).orElse(null);
+    }
+
+    @Override
+    public Locker getLockerByMemberId(Long id) {
+        return lockerRepository.findByMemberId(id);
     }
 
     @Override
@@ -44,6 +55,7 @@ public class LockerManager implements LockerService {
         if(foundLocker != null){
             foundLocker.setLockerCode(locker.getLockerCode());
             foundLocker.setLockerType(locker.getLockerType());
+            foundLocker.setMember(locker.getMember());
             foundLocker.setModifiedBy(locker.getModifiedBy());
             return lockerRepository.save(foundLocker);
         } else{

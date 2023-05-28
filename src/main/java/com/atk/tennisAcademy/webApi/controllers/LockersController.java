@@ -1,6 +1,7 @@
 package com.atk.tennisAcademy.webApi.controllers;
 import com.atk.tennisAcademy.business.abstracts.LockerService;
 import com.atk.tennisAcademy.entities.Locker;
+import com.atk.tennisAcademy.entities.Member;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -15,13 +16,23 @@ public class LockersController {
     LockerService lockerService;
 
     @GetMapping
-    public List<Locker> getAlLockera(){
+    public List<Locker> getAllLockers(){
         return lockerService.getAllLockers();
+    }
+
+    @GetMapping("/membernull")
+    public List<Locker> getAllLockersMemberNull(){
+        return lockerService.getAllLockersMemberNull();
     }
 
     @GetMapping("/{id}")
     public Locker getLockerById(@PathVariable Long id){
         return lockerService.getLockerById(id);
+    }
+
+    @GetMapping("/member/{id}")
+    public Locker getLockerByMemberId(@PathVariable Long id){
+        return lockerService.getLockerByMemberId(id);
     }
 
     @PostMapping

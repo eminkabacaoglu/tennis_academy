@@ -1,5 +1,6 @@
 package com.atk.tennisAcademy.webApi.controllers;
 
+import com.atk.tennisAcademy.business.abstracts.LockerService;
 import com.atk.tennisAcademy.business.abstracts.MemberService;
 import com.atk.tennisAcademy.entities.Member;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -40,6 +41,7 @@ public class MembersController {
     public Member getMember(@PathVariable Long id){
         return memberService.getMemberById(id);
     }
+
 
     @PostMapping
     public Member saveMember(@RequestBody Member member){
