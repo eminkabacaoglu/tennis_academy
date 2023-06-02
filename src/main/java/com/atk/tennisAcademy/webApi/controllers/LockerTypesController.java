@@ -7,9 +7,9 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+@CrossOrigin(origins = "*")
 @RestController
 @RequestMapping("/lockertypes")
-@CrossOrigin(origins = "http://localhost:4200")
 public class LockerTypesController {
 
     @Autowired
@@ -17,6 +17,8 @@ public class LockerTypesController {
 
     @GetMapping
     public List<LockerType> getAlLockerTypes(){
+
+        System.out.println("test");
         return lockerTypeService.getAllLockerTypes();
     }
 
