@@ -91,6 +91,7 @@ public class MemberManager implements MemberService {
             foundMember.setActive(member.isActive());
             foundMember.setWebReservation(member.isWebReservation());
             foundMember.setModifiedBy(member.getModifiedBy());
+            foundMember.setReferenceMember(member.getReferenceMember());
 
             return memberRepository.save(foundMember);
         }else {

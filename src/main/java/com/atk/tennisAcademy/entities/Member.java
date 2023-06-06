@@ -25,6 +25,10 @@ public class Member extends Person{
     private MembershipStatus membershipStatus;
 
     @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "reference_member_id")
+    private Member referenceMember;
+
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "member_type_id")
     private MemberType memberType;
 
